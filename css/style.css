@@ -1,0 +1,337 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Верхняя белая шапка --- */
+.site-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.logo-text strong {
+    display: block;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #222;
+}
+
+.logo-text span {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Исправление: запрет переноса строк для телефона */
+.header-contact {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    white-space: nowrap; 
+}
+
+.phone-icon {
+    color: #28a745;
+}
+
+.arrow-down {
+    font-size: 10px;
+    color: #888;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #555;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.action-item:hover {
+    color: #28a745;
+}
+
+.vk-icon::before {
+    content: 'VK';
+    color: #0077FF;
+    font-weight: bold;
+}
+
+.cart-icon {
+    position: relative;
+    padding: 5px 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+/* --- Зелёная панель меню (Главное изменение) --- */
+.main-nav-bar {
+    background-color: #128a08; /* Цвет как на скриншоте */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    /* Прижимаем влево, как на прототипе */
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 5px 0 5px 0;
+    margin: 0;
+
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 20px; /* Чуть больше отступы для красоты */
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.nav-link .arrow {
+    font-size: 8px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+/* --- Выпадающее меню --- */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 220px;
+    list-style: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    padding: 10px 0;
+    margin-top: 5px;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+    color: #2E8B57;
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* === Форма заказа === */
+.order-block {
+    max-width: 520px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.order-block h3 {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.order-block input[type="text"],
+.order-block input[type="tel"],
+.order-block input[type="email"],
+.order-block select,
+.order-block textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.order-block textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.order-block .file-upload-label {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.order-block button {
+    width: 100%;
+    padding: 12px;
+    background: #2e7d32;      /* подстрой под свой зелёный из меню */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.order-block button:hover {
+    background: #256428;
+}
+
+.hp-field { display: none; }
+
+
+/* === Модальное окно === */
+.modal-overlay {
+    position: fixed;
+    inset: 0;               /* растянуть на весь экран */
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;       /* если форма высокая — прокрутится */
+    z-index: 1000;
+}
+
+.modal-overlay[hidden] {
+    display: none;
+}
+
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-size: 28px;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    z-index: 1;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+
+/* .contact-block — центрирование h3 "Заказать печать" (Сергей, 13.11.2026) */
+.contact-block {
+    text-align: center;
+}
+
+
+/* --- Адаптив (для мобильных) --- */
+@media (max-width: 992px) {
+    .header-inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: #e8f5e9; /* Светло-зелёный фон для подменю */
+        display: none;
+        flex-direction: column;
+        padding: 10px 0;
+        margin-top: 10px;
+    }
+    
+    .nav-item:hover .dropdown-menu {
+        display: flex;
+    }
+}
+

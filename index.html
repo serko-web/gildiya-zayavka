@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оставить заявку — Нижегородская Гильдия Фотографов</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+<header class="site-header">
+        <div class="container header-inner">
+            
+            <!-- Левая часть: Лого и телефон -->
+            <div class="header-left">
+                <a href="#" class="logo">
+                    <img src="img/logo.png" alt="Лого" class="logo-img">
+                    <div class="logo-text">
+                        <strong>Нижегородская</strong>
+                        <span>Гильдия Фотографов</span>
+                    </div>
+                </a>
+                <div class="header-contact">
+                    <!-- <span class="phone-icon">+</span> -->
+                    <span class="phone-number">+7 831 430-33-25</span>
+                    <!-- <span class="arrow-down">▼</span> -->
+                </div>
+            </div>
+
+            <!-- Правая часть: Иконки и кнопки -->
+            <div class="header-actions">
+                
+                <a href="order.php" class="action-item order-btn" data-modal-open>Заказать</a>
+
+                <a href="#" class="action-item vk-icon">VK</a>
+                <a href="#" class="action-item">Оплата и доставка</a>
+                <a href="#" class="action-item">Войти</a>
+                <a href="#" class="action-item cart-icon">0</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ЗЕЛЁНАЯ ПАНЕЛЬ МЕНЮ (отдельно, чтобы фон был сплошным) -->
+    <nav class="main-nav-bar">
+        <div class="container">
+            <ul class="nav-list">
+                <!-- <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">ПЕЧАТЬ ФОТОГРАФИЙ</a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="order.php?service=print" class="nav-link">ПЕЧАТЬ ФОТОГРАФИЙ</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">ФОТОКНИГИ <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Фотокниги Премиум</a></li>
+                        <li><a href="#">Фотокниги Стандарт</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">ФОТОСУВЕНИРЫ <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Магниты</a></li>
+                        <li><a href="#">Кружки</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">ИНТЕРЬЕРНАЯ ПЕЧАТЬ <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Широкоформатная печать</a></li>
+                        <li><a href="#">Фото на холсте</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">КАЛЕНДАРИ <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Квартальные</a></li>
+                        <li><a href="#">Настенные</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">ПОЛИГРАФИЯ <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Визитки</a></li>
+                        <li><a href="#">Листовки</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">УСЛУГИ <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Ретушь</a></li>
+                        <li><a href="#">Оцифровка</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">ТОВАРЫ <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Фотобумага</a></li>
+                        <li><a href="#">Краски</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="order-block" id="order-form">
+    <h3>Оставьте заявку на печать</h3>
+    <form action="order.php" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+        <select name="service" required>
+            <option value="" disabled >Выберите услугу</option>
+                            <option value="print" selected>
+                    Печать фотографий                </option>
+                            <option value="canvas" >
+                    Печать на холсте                </option>
+                            <option value="photobook" >
+                    Фотокнига                </option>
+                            <option value="scan" >
+                    Оцифровка                </option>
+                    </select>
+        <textarea name="comment" placeholder="Комментарий: количество, бумага, сроки"></textarea>
+        <label class="file-upload-label">
+            Прикрепить фото
+            <input type="file" name="photos[]" accept="image/*" multiple>
+        </label>
+        <input type="text" name="website" class="hp-field">
+        <button type="submit">Отправить заказ</button>
+    </form>
+</div>
+
+    <div class="container">
+        <h2 style="text-align:center; margin-top:30px;">Оставьте заявку на печать</h2>
+        <p style="text-align:center;">Заполните форму — мы свяжемся с вами и уточним детали.</p>    
+    </div>
+        
+        
+    <div class="modal-overlay" id="orderModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+        <button class="modal-close" type="button" aria-label="Закрыть">&times;</button>
+        <div class="order-block" id="order-form">
+    <h3>Оставьте заявку на печать</h3>
+    <form action="order.php" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+        <select name="service" required>
+            <option value="" disabled >Выберите услугу</option>
+                            <option value="print" selected>
+                    Печать фотографий                </option>
+                            <option value="canvas" >
+                    Печать на холсте                </option>
+                            <option value="photobook" >
+                    Фотокнига                </option>
+                            <option value="scan" >
+                    Оцифровка                </option>
+                    </select>
+        <textarea name="comment" placeholder="Комментарий: количество, бумага, сроки"></textarea>
+        <label class="file-upload-label">
+            Прикрепить фото
+            <input type="file" name="photos[]" accept="image/*" multiple>
+        </label>
+        <input type="text" name="website" class="hp-field">
+        <button type="submit">Отправить заказ</button>
+    </form>
+</div>
+    </div>
+</div>
+    <script src="js/main.js"></script>
+
+        
+</body>
+</html>
